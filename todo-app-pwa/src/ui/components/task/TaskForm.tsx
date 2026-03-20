@@ -1,10 +1,16 @@
 import { useState } from 'react'
 
-export default function TaskForm() {
+type Props = {
+  addTask: (title: string) => void;
+}
+
+export default function TaskForm({addTask}: Props) {
   const [title, setTitle] = useState('');
+  
   const addTaskSubmit = (e: React.FormEvent) => {
-    e.preventDefault()
-    console.log("Tarea agregada:",title);
+    e.preventDefault();
+    addTask(title);
+    setTitle('');
   }
 
   return (
