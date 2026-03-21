@@ -1,6 +1,7 @@
 import { useState } from "react";
 import type { Task } from "../../domain/task/task.types";
 import validateTaskTitle from "../../domain/task/task.validators";
+import generateId from "../../shared/generateId.util";
 
 export default function useTaskActions() {
 
@@ -12,7 +13,7 @@ export default function useTaskActions() {
       return;
 
     const newTask: Task = {
-      id: crypto.randomUUID(),
+      id: generateId(),
       title,
       completed: false,
       addedAt: new Date(),
@@ -22,11 +23,21 @@ export default function useTaskActions() {
   }
 
   const onComplete = (id: string) => {
-    console.log("Tarea completada:", id);
+    const updatedTasks = tasks.map((task) => {
+      if (task.id === id) {
+        return {
+          ...task,
+          completed: !task.completed,
+        }
+      }
+      return task;
+    });
+    setTasks(updatedTasks);
   }
 
   const onDelete = (id: string) => {
-    console.log("Tarea eliminada:", id);
+    const updatedTasks = tasks.filter((task) => task.id !== id);
+    setTasks(updatedTasks);
   }
 
   return {
