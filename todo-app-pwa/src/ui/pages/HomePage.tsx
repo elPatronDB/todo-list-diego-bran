@@ -4,13 +4,13 @@ import useTaskActions from "../../application/task/useTaskActions"
 
 function HomePage() {
   
-  const {tasks, addTask, onComplete, onDelete} = useTaskActions();
+  const {tasks, addTask, onComplete, onDelete, onDeleteAttachment} = useTaskActions();
 
   return (
     <>
       <TaskForm addTask={addTask}/>
       <h3>Lista de tareas</h3>
-      <TaskList tasks={tasks} onComplete={onComplete} onDelete={onDelete} />
+      <TaskList tasks={tasks} onComplete={onComplete} onDelete={onDelete} onDeleteAttachment={onDeleteAttachment} />
     </>
   )
 }

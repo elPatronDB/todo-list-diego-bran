@@ -5,14 +5,21 @@ type Props = {
   tasks: Task[];
   onComplete: (id: string) => void;
   onDelete: (id: string) => void;
+  onDeleteAttachment: (id: string) => void;
 }
 
-export default function TaskList({tasks, onComplete, onDelete}: Props) {
+export default function TaskList({tasks, onComplete, onDelete, onDeleteAttachment}: Props) {
   return (
     <>
       <div className="flex flex-col gap-4">
         {tasks.map((task) => (
-          <TaskItem key={task.id} task={task} onComplete={onComplete} onDelete={onDelete} />
+          <TaskItem 
+            key={task.id} 
+            task={task} 
+            onComplete={onComplete} 
+            onDelete={onDelete} 
+            onDeleteAttachment={onDeleteAttachment} 
+          />
         ))}
       </div>
     </>

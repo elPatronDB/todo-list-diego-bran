@@ -4,5 +4,6 @@ export type Task = {
   title: string;
   completed: boolean;
   addedAt: Date;
+  attachment?: File;
 }
 
