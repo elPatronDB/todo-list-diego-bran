@@ -3,9 +3,12 @@ import TaskList from "../components/task/TaskList"
 import type {Task} from "../../domain/task/task.type"
 import type {Student} from "../../domain/student/student.type"
 import StudentInfo from "../components/student/StudentInfo"
+import StudentRegisterDialog from "../components/student/StudentRegisterDialog"
+import {useState} from 'react';
 
 function HomePage() {
-  
+  const [isRegisterDialogOpen, setIsRegisterDialogOpen] = useState(false);
+
   const addTask = (title: string) => {}
   const onComplete = (id: string) => {}
   const onRegister = () => {}
@@ -42,7 +45,11 @@ function HomePage() {
       <TaskForm addTask={addTask}/>
       <h3>Lista de tareas</h3>
       <TaskList tasks={tasks} onComplete={onComplete} />
-    
+      <StudentRegisterDialog 
+        isOpen={isRegisterDialogOpen} 
+        onClose={() => setIsRegisterDialogOpen(false)} 
+        onRegister={onRegister} 
+      />
       <footer className="bg-gray-800 text-white p-4 text-center">
         UMES
       </footer>
