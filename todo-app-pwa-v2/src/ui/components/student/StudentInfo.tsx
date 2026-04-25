@@ -2,10 +2,10 @@ import type { Student } from "../../../domain/student/student.type"
   
 type Props = {
   student: Student;
-  onRegister: () => void;
+  onRegisterStudentOpen: () => void;
 }
 
-export default function StudentInfo({student, onRegister}: Props) {
+export default function StudentInfo({student, onRegisterStudentOpen}: Props) {
 
   return (
     <div className="flex items-start justify-between p-4 bg-white rounded shadow">
@@ -17,7 +17,7 @@ export default function StudentInfo({student, onRegister}: Props) {
       <button 
         className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded"
         type="button"
-        onClick={onRegister}>
+        onClick={onRegisterStudentOpen}>
           Registrar
       </button>
     </div>

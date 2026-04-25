@@ -41,7 +41,7 @@ function HomePage() {
       <header className="bg-gray-800 text-white p-4">
         <h1 className="text-xl font-bold">TO DO App</h1>
       </header>
-      <StudentInfo student={student} onRegister={onRegister} />
+      <StudentInfo student={student} onRegisterStudentOpen={() => setIsRegisterDialogOpen(true)} />
       <TaskForm addTask={addTask}/>
       <h3>Lista de tareas</h3>
       <TaskList tasks={tasks} onComplete={onComplete} />

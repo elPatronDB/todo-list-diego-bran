@@ -15,11 +15,14 @@ export default function StudentRegisterDialog ({
   const [name, setName] = useState('');
   const [studentKey, setStudentKey] = useState('');
 
+  if (!isOpen) return null;
+
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     // Aquí puedes agregar la lógica para registrar al estudiante
     console.log('Nombre:', name);
     console.log('Matrícula:', studentKey);
+    onClose();
   }
 
   return (
