@@ -1,5 +1,7 @@
 import type { Task } from "../../../domain/task/task.type"
 
+// Comentario: Este componente representa un item de tarea en la lista de tareas. Muestra el título de la tarea, el nombre de la persona asignada y un botón para marcar la tarea como completada. Si la tarea ya está completada, el título se muestra con una línea tachada.
+
 type Props = {
   task: Task;
   onComplete: (id: string) => void;
